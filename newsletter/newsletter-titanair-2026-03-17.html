@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Titanair Executive Brief — 17 mars 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f0f2f5;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+
+    .email-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffff;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #0b1d3a 0%, #1a3a6b 50%, #2563eb 100%);
+      padding: 40px 40px 30px;
+      text-align: center;
+    }
+
+    .header-logo {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .header-logo span {
+      color: #60a5fa;
+    }
+
+    .header-subtitle {
+      color: #93c5fd;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .header-date {
+      color: #ffffff;
+      font-size: 14px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-weight: 300;
+    }
+
+    .header-tagline {
+      color: #bfdbfe;
+      font-size: 11px;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* Version Toggle */
+    .version-toggle {
+      background: #eef2ff;
+      padding: 20px 40px;
+      text-align: center;
+      border-bottom: 2px solid #c7d2fe;
+    }
+
+    .version-toggle p {
+      font-size: 13px;
+      color: #4338ca;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .toggle-buttons {
+      display: inline-flex;
+      gap: 12px;
+    }
+
+    .toggle-btn {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .toggle-btn.podcast {
+      background: #7c3aed;
+      color: #ffffff;
+    }
+
+    .toggle-btn.text {
+      background: #0b1d3a;
+      color: #ffffff;
+    }
+
+    /* Podcast Section */
+    .podcast-section {
+      background: linear-gradient(135deg, #4c1d95, #7c3aed);
+      padding: 30px 40px;
+      color: #ffffff;
+    }
+
+    .podcast-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .podcast-section .podcast-sub {
+      font-size: 12px;
+      color: #ddd6fe;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .podcast-player {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .play-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #7c3aed;
+      margin-left: 3px;
+    }
+
+    .podcast-info {
+      flex: 1;
+    }
+
+    .podcast-info .title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .podcast-info .duration {
+      font-size: 12px;
+      color: #c4b5fd;
+      margin-top: 4px;
+    }
+
+    .podcast-info .waveform {
+      margin-top: 8px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #a78bfa;
+      letter-spacing: 1px;
+    }
+
+    .podcast-note {
+      font-size: 11px;
+      color: #c4b5fd;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* Main Content */
+    .content {
+      padding: 0 40px;
+    }
+
+    /* Section */
+    .section {
+      padding: 32px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .section-icon.reglementaire { background: #fee2e2; }
+    .section-icon.business { background: #dcfce7; }
+    .section-icon.events { background: #dbeafe; }
+    .section-icon.techwatch { background: #fef3c7; }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b1d3a;
+    }
+
+    .section-label {
+      font-size: 11px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    /* Article Card */
+    .article-card {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 14px;
+      border-left: 4px solid #e5e7eb;
+    }
+
+    .article-card.urgent { border-left-color: #ef4444; }
+    .article-card.important { border-left-color: #f59e0b; }
+    .article-card.info { border-left-color: #3b82f6; }
+    .article-card.opportunity { border-left-color: #10b981; }
+
+    .article-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .badge-urgent { background: #fef2f2; color: #dc2626; }
+    .badge-important { background: #fffbeb; color: #d97706; }
+    .badge-info { background: #eff6ff; color: #2563eb; }
+    .badge-opportunity { background: #ecfdf5; color: #059669; }
+    .badge-event { background: #f0f9ff; color: #0284c7; }
+    .badge-alerte { background: #fef2f2; color: #dc2626; }
+
+    .article-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .article-body {
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.7;
+    }
+
+    .article-body strong {
+      color: #1a1a2e;
+    }
+
+    .article-action {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #d1d5db;
+    }
+
+    .article-action-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #4338ca;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-action-text {
+      font-size: 12px;
+      color: #6366f1;
+      margin-top: 2px;
+    }
+
+    /* Event Card */
+    .event-card {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .event-date-box {
+      background: #0b1d3a;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      text-align: center;
+      flex-shrink: 0;
+      min-width: 64px;
+    }
+
+    .event-date-box .day {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .event-date-box .month {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+      color: #93c5fd;
+    }
+
+    .event-details h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+
+    .event-details .event-meta {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .event-details .event-desc {
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .event-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    .tag-lyon { background: #dbeafe; color: #1d4ed8; }
+    .tag-paris { background: #fce7f3; color: #be185d; }
+    .tag-national { background: #dcfce7; color: #15803d; }
+
+    /* KPI Bar */
+    .kpi-bar {
+      background: #f0f9ff;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #e0f2fe;
+      border-bottom: 1px solid #e0f2fe;
+    }
+
+    .kpi-item {
+      text-align: center;
+    }
+
+    .kpi-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b1d3a;
+    }
+
+    .kpi-label {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .kpi-trend {
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .kpi-trend.up { color: #16a34a; }
+    .kpi-trend.stable { color: #d97706; }
+
+    /* Footer */
+    .footer {
+      background: #0b1d3a;
+      padding: 30px 40px;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .footer-brand span {
+      color: #60a5fa;
+    }
+
+    .footer-address {
+      font-size: 12px;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-links a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-size: 12px;
+      margin: 0 10px;
+    }
+
+    .footer-legal {
+      font-size: 10px;
+      margin-top: 16px;
+      color: #64748b;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .content, .header, .version-toggle, .podcast-section, .kpi-bar, .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .kpi-bar { flex-direction: column; gap: 16px; }
+      .event-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">TITAN<span>AIR</span></div>
+    <div class="header-subtitle">Executive Daily Brief</div>
+    <div class="header-date">Mardi 17 mars 2026 &mdash; &Eacute;dition #247</div>
+    <div class="header-tagline">L'essentiel de votre secteur en 3 minutes de lecture</div>
+  </div>
+
+  <!-- VERSION TOGGLE -->
+  <div class="version-toggle">
+    <p>Choisissez votre format de lecture :</p>
+    <div class="toggle-buttons">
+      <a href="#podcast" class="toggle-btn podcast">&#127911; Version Podcast (4 min)</a>
+      <a href="#full-content" class="toggle-btn text">&#128196; Version Int&eacute;grale ci-dessous</a>
+    </div>
+  </div>
+
+  <!-- PODCAST SECTION -->
+  <div class="podcast-section" id="podcast">
+    <h2>&#127911; Le Brief Titanair &mdash; Votre podcast quotidien</h2>
+    <p class="podcast-sub">Style France Inter &bull; 4 minutes &bull; Voix synth&eacute;tis&eacute;e</p>
+
+    <div class="podcast-player">
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <div class="podcast-info">
+        <div class="title">Brief du 17 mars 2026</div>
+        <div class="duration">Dur&eacute;e : 4 min 12 s</div>
+        <div class="waveform">&#9612;&#9615;&#9614;&#9612;&#9615;&#9616;&#9612;&#9615;&#9614;&#9612;&#9616;&#9612;&#9615;&#9614;&#9612;&#9615;&#9616;&#9612;&#9615;&#9614;&#9612;&#9615;&#9616;&#9612;&#9615;&#9614;&#9612;</div>
+      </div>
+    </div>
+
+    <p class="podcast-note">&#128206; Le fichier audio MP3 est &eacute;galement disponible en pi&egrave;ce jointe de cet e-mail.<br>Script complet du podcast disponible en fin de newsletter.</p>
+  </div>
+
+  <!-- KPI BAR -->
+  <div class="kpi-bar">
+    <div class="kpi-item">
+      <div class="kpi-value">+8,9%</div>
+      <div class="kpi-label">March&eacute; QAI France</div>
+      <div class="kpi-trend up">&#9650; TCAC 2025-2035</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">J-8</div>
+      <div class="kpi-label">CONTAMIN@LYON</div>
+      <div class="kpi-trend up">25-26 mars 2026</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">2026</div>
+      <div class="kpi-label">&Eacute;ch&eacute;ance Plan QAI</div>
+      <div class="kpi-trend stable">&#9679; ERP &mdash; D&eacute;cret 2022</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content" id="full-content">
+
+    <!-- SECTION 1: RÉGLEMENTAIRE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon reglementaire">&#9878;&#65039;</div>
+        <div>
+          <div class="section-label">Veille r&eacute;glementaire</div>
+          <div class="section-title">Nouvelles obligations &amp; normes</div>
+        </div>
+      </div>
+
+      <div class="article-card urgent">
+        <span class="article-badge badge-alerte">ALERTE &Eacute;CH&Eacute;ANCE</span>
+        <h3 class="article-title">Plan d'actions QAI pour les ERP : &eacute;ch&eacute;ance fin 2026</h3>
+        <div class="article-body">
+          Le <strong>d&eacute;cret n&deg;2022-1689 du 27 d&eacute;cembre 2022</strong> impose &agrave; tous les &eacute;tablissements recevant du public (ERP) de finaliser leur <strong>plan d'actions Qualit&eacute; de l'Air Int&eacute;rieur</strong> avant la fin 2026. Ce plan comprend l'autodiagnostic des sources de polluants, l'entretien des syst&egrave;mes de ventilation et la r&eacute;duction de l'exposition aux polluants r&eacute;glement&eacute;s (formald&eacute;hydes, benz&egrave;ne, CO&#8322;, t&eacute;trachloro&eacute;thyl&egrave;ne).
+          <br><br>
+          La surveillance doit &ecirc;tre mise en &oelig;uvre <strong>tous les 7 ans</strong> par le propri&eacute;taire ou l'exploitant. Depuis le 1er janvier 2025, de nouveaux types d'&eacute;tablissements sont soumis &agrave; ces exigences.
+        </div>
+        <div class="article-action">
+          <div class="article-action-label">&#9889; Impact Titanair</div>
+          <div class="article-action-text">Opportunit&eacute; majeure de prospection aupr&egrave;s des ERP non &eacute;quip&eacute;s. Proposer un audit filtration + plan de mise en conformit&eacute; QAI cl&eacute; en main avec nos solutions QUARTZ et PRISME.</div>
+        </div>
+      </div>
+
+      <div class="article-card important">
+        <span class="article-badge badge-important">NORME</span>
+        <h3 class="article-title">Renforcement de la norme ISO 16890 &mdash; Classification des filtres</h3>
+        <div class="article-body">
+          La norme <strong>ISO 16890</strong> continue de s'imposer comme r&eacute;f&eacute;rence pour la classification des filtres &agrave; air de ventilation g&eacute;n&eacute;rale. Le syst&egrave;me de classification repose d&eacute;sormais sur les performances de capture des fractions <strong>PM1, PM2.5 et PM10</strong>, avec un accent particulier sur les particules ultrafines PM1 reconnues comme les plus nocives.
+          <br><br>
+          Les prescripteurs et bureaux d'&eacute;tudes sp&eacute;cifient de plus en plus des filtres <strong>ePM1 &ge; 50%</strong> pour les b&acirc;timents tertiaires et <strong>ePM1 &ge; 80%</strong> pour les &eacute;tablissements de sant&eacute;.
+        </div>
+        <div class="article-action">
+          <div class="article-action-label">&#9889; Impact Titanair</div>
+          <div class="article-action-text">Notre gamme TITAPAK SV-GD et TITABAG r&eacute;pond aux exigences ePM1 80% (F9). Mettre en avant la conformit&eacute; ISO 16890 dans nos argumentaires commerciaux.</div>
+        </div>
+      </div>
+
+      <div class="article-card info">
+        <span class="article-badge badge-info">MISE &Agrave; JOUR</span>
+        <h3 class="article-title">VLEP industrielles : valeurs limites durcies depuis juillet 2023</h3>
+        <div class="article-body">
+          Rappel : les <strong>Valeurs Limites d'Exposition Professionnelle</strong> (VLEP) ont &eacute;t&eacute; significativement abaiss&eacute;es. La filtration de l'air industriel permet de r&eacute;duire l'exposition aux polluants de <strong>80 &agrave; 95%</strong>. Les entreprises industrielles doivent adapter leurs syst&egrave;mes de filtration pour rester conformes.
+        </div>
+        <div class="article-action">
+          <div class="article-action-label">&#9889; Impact Titanair</div>
+          <div class="article-action-text">Cibler les sites industriels en r&eacute;gion Auvergne-Rh&ocirc;ne-Alpes pour un audit VLEP. Les filtres TITAPAK V-GD (H14) r&eacute;pondent aux exigences les plus strictes.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: OPPORTUNITÉS BUSINESS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon business">&#128200;</div>
+        <div>
+          <div class="section-label">Opportunit&eacute;s business</div>
+          <div class="section-title">March&eacute; &amp; croissance</div>
+        </div>
+      </div>
+
+      <div class="article-card opportunity">
+        <span class="article-badge badge-opportunity">CROISSANCE</span>
+        <h3 class="article-title">March&eacute; des purificateurs d'air : +8,9% de TCAC jusqu'en 2035</h3>
+        <div class="article-body">
+          Le march&eacute; mondial des purificateurs d'air affiche un taux de croissance annuel compos&eacute; de <strong>8,86%</strong> projet&eacute; entre 2025 et 2035. Les principaux moteurs : prise de conscience sanitaire, r&eacute;glementation QAI renforc&eacute;e, et int&eacute;gration de technologies connect&eacute;es (capteurs IoT, pilotage intelligent).
+          <br><br>
+          En France, le march&eacute; est domin&eacute; par la filtration m&eacute;canique (HEPA), devant l'ionisation et la photocatalyse. Le segment hospitalier et tertiaire reste le plus dynamique.
+        </div>
+        <div class="article-action">
+          <div class="article-action-label">&#127919; Action sugg&eacute;r&eacute;e</div>
+          <div class="article-action-text">D&eacute;velopper l'offre purificateurs d'air int&eacute;grant la technologie QUARTZ rechargeable &mdash; argument diff&eacute;renciant &eacute;co-responsable sur un march&eacute; en forte expansion.</div>
+        </div>
+      </div>
+
+      <div class="article-card opportunity">
+        <span class="article-badge badge-opportunity">TENDANCE</span>
+        <h3 class="article-title">Boom du capital-risque dans la filtration : +32% en 2 ans</h3>
+        <div class="article-body">
+          Le financement en capital-risque dans les <strong>startups de filtration de l'air</strong> a bondi de pr&egrave;s de <strong>32%</strong> entre 2023 et 2025. Les investisseurs misent sur les filtres autonettoyants, la nanotechnologie et les syst&egrave;mes de filtration intelligents avec IA embarqu&eacute;e.
+          <br><br>
+          Le march&eacute; des &eacute;quipements de traitement de l'air comprim&eacute; devrait passer de <strong>10,7 Mds$</strong> en 2025 &agrave; <strong>19,2 Mds$</strong> en 2034.
+        </div>
+        <div class="article-action">
+          <div class="article-action-label">&#127919; Action sugg&eacute;r&eacute;e</div>
+          <div class="article-action-text">Surveiller les startups innovantes pour d'&eacute;ventuels partenariats technologiques, notamment sur les filtres &agrave; nanomat&eacute;riaux et les m&eacute;dias filtrants &eacute;co-con&ccedil;us.</div>
+        </div>
+      </div>
+
+      <div class="article-card opportunity">
+        <span class="article-badge badge-opportunity">SEGMENT</span>
+        <h3 class="article-title">ERP &amp; Collectivit&eacute;s : un march&eacute; de mise en conformit&eacute; massif</h3>
+        <div class="article-body">
+          Avec l'&eacute;ch&eacute;ance fin 2026 du plan QAI, les <strong>&eacute;coles, cr&egrave;ches, h&ocirc;pitaux, EHPAD et b&acirc;timents publics</strong> doivent s'&eacute;quiper de capteurs CO&#8322; et de solutions de filtration ePM1 ou sup&eacute;rieures. Les syst&egrave;mes intelligents avec r&eacute;gulation automatique des d&eacute;bits (capteurs CO&#8322; + ventilation modul&eacute;e) sont de plus en plus demand&eacute;s.
+          <br><br>
+          <strong>Notre gamme de capteurs CO&#8322;</strong> combin&eacute;e &agrave; nos filtres fins et absolus constitue une offre compl&egrave;te pour ce segment.
+        </div>
+        <div class="article-action">
+          <div class="article-action-label">&#127919; Action sugg&eacute;r&eacute;e</div>
+          <div class="article-action-text">Lancer une campagne cibl&eacute;e &laquo; Pack Conformit&eacute; QAI 2026 &raquo; aupr&egrave;s des collectivit&eacute;s locales de la r&eacute;gion AURA (capteurs CO&#8322; + filtres PRISME + accompagnement).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: ÉVÉNEMENTS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon events">&#128197;</div>
+        <div>
+          <div class="section-label">&Eacute;v&eacute;nements &agrave; venir</div>
+          <div class="section-title">Agenda professionnel</div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date-box">
+          <div class="day">25</div>
+          <div class="month">MARS</div>
+        </div>
+        <div class="event-details">
+          <h4>CONTAMIN@LYON 2026</h4>
+          <div class="event-meta">&#128205; La Sucri&egrave;re, Lyon &bull; 25-26 mars 2026 &bull; Organis&eacute; par l'ASPEC</div>
+          <div class="event-desc">
+            Le rendez-vous incontournable de la <strong>ma&icirc;trise de la contamination</strong>. Au programme : filtration haute performance, gestion des flux d'air, optimisation &eacute;nerg&eacute;tique. Salon id&eacute;al pour Titanair &mdash; <strong>&agrave; 15 minutes de nos locaux</strong>.
+          </div>
+          <span class="event-tag tag-lyon">&#127987; Lyon &mdash; &Eacute;v&eacute;nement local</span>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date-box">
+          <div class="day">28</div>
+          <div class="month">SEPT</div>
+        </div>
+        <div class="event-details">
+          <h4>Interclima + Elec 2026 (Mondial du B&acirc;timent)</h4>
+          <div class="event-meta">&#128205; Paris Expo, Porte de Versailles &bull; 28 sept. &ndash; 1er oct. 2026</div>
+          <div class="event-desc">
+            Salon de r&eacute;f&eacute;rence du <strong>CVC et de la QAI</strong>. R&eacute;unit fabricants, installateurs, bureaux d'&eacute;tudes et ma&icirc;tres d'ouvrage. Conf&eacute;rences techniques sur la ventilation intelligente, les &eacute;quipements connect&eacute;s et la filtration avanc&eacute;e. <strong>Pr&eacute;voir la r&eacute;servation du stand d&egrave;s maintenant.</strong>
+          </div>
+          <span class="event-tag tag-paris">&#127987; Paris &mdash; &Eacute;v&eacute;nement national</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: VEILLE TECHNO -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon techwatch">&#128161;</div>
+        <div>
+          <div class="section-label">Veille technologique</div>
+          <div class="section-title">Innovations &amp; R&amp;D</div>
+        </div>
+      </div>
+
+      <div class="article-card info">
+        <span class="article-badge badge-info">INNOVATION</span>
+        <h3 class="article-title">Filtres autonettoyants &amp; nanotechnologie : les tendances 2026</h3>
+        <div class="article-body">
+          Les technologies &eacute;mergentes transforment le secteur de la filtration. La <strong>nanotechnologie</strong> permet de cr&eacute;er des m&eacute;dias filtrants avec des pores plus petits et une efficacit&eacute; sup&eacute;rieure. Les <strong>filtres autonettoyants</strong> &eacute;liminent automatiquement les contaminants, r&eacute;duisant la maintenance et les co&ucirc;ts d'exploitation.
+          <br><br>
+          L'int&eacute;gration de <strong>capteurs IoT</strong> et d'<strong>intelligence artificielle</strong> pour le pilotage en temps r&eacute;el de la filtration est en forte progression. Les syst&egrave;mes modernes ajustent automatiquement les d&eacute;bits en fonction du taux d'occupation et de la qualit&eacute; de l'air mesur&eacute;e.
+        </div>
+        <div class="article-action">
+          <div class="article-action-label">&#128300; Piste R&amp;D</div>
+          <div class="article-action-text">Explorer l'int&eacute;gration de capteurs de perte de charge connect&eacute;s sur nos filtres QUARTZ pour proposer une maintenance pr&eacute;dictive &agrave; nos clients exploitants.</div>
+        </div>
+      </div>
+
+      <div class="article-card info">
+        <span class="article-badge badge-info">&Eacute;CO-CONCEPTION</span>
+        <h3 class="article-title">&Eacute;conomie circulaire : notre avantage QUARTZ rechargeable</h3>
+        <div class="article-body">
+          La pression r&eacute;glementaire et les objectifs de d&eacute;veloppement durable poussent le march&eacute; vers des <strong>solutions &eacute;co-con&ccedil;ues</strong>. Notre filtre <strong>QUARTZ</strong>, polydièdre rechargeable, r&eacute;pond pleinement &agrave; cette tendance en r&eacute;duisant consid&eacute;rablement les d&eacute;chets li&eacute;s &agrave; la filtration.
+          <br><br>
+          <strong>Argument cl&eacute;</strong> : dans un contexte o&ugrave; les entreprises doivent publier leur bilan carbone, le QUARTZ rechargeable devient un levier de r&eacute;duction d'empreinte environnementale mesurable.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END MAIN CONTENT -->
+
+  <!-- PODCAST SCRIPT SECTION -->
+  <div style="background: #faf5ff; padding: 32px 40px; border-top: 2px solid #e9d5ff;">
+    <h2 style="font-size: 16px; font-weight: 700; color: #6b21a8; margin-bottom: 4px;">&#128196; Script du podcast &mdash; Version int&eacute;grale</h2>
+    <p style="font-size: 12px; color: #7c3aed; margin-bottom: 20px; font-style: italic;">Voix type France Inter / France Info &bull; Dur&eacute;e : ~4 minutes</p>
+
+    <div style="background: #ffffff; border-radius: 10px; padding: 24px; font-size: 13px; color: #374151; line-height: 1.8; border: 1px solid #e9d5ff;">
+      <p style="color: #6b21a8; font-weight: 600; font-style: italic; margin-bottom: 16px;">[G&eacute;n&eacute;rique &mdash; musique douce, ambiance morning news]</p>
+
+      <p>&laquo; Bonjour &agrave; toutes et &agrave; tous. Vous &eacute;coutez le <strong>Brief Titanair</strong>, votre rendez-vous quotidien avec l'actualit&eacute; de la qualit&eacute; de l'air et de la filtration. Nous sommes le mardi 17 mars 2026, et voici ce qu'il faut retenir ce matin. &raquo;</p>
+
+      <br>
+
+      <p style="color: #6b21a8; font-weight: 600; font-style: italic; margin-bottom: 4px;">[Jingle r&eacute;glementaire]</p>
+      <p>&laquo; Commen&ccedil;ons par la veille r&eacute;glementaire. L'horloge tourne pour les &eacute;tablissements recevant du public. Le d&eacute;cret de d&eacute;cembre 2022 impose la finalisation d'un plan d'actions Qualit&eacute; de l'Air Int&eacute;rieur avant la fin de l'ann&eacute;e. Concr&egrave;tement, &eacute;coles, h&ocirc;pitaux, EHPAD et b&acirc;timents publics doivent avoir mis en place un autodiagnostic de leurs sources de polluants, v&eacute;rifi&eacute; leurs syst&egrave;mes de ventilation, et d&eacute;ploy&eacute; des mesures de r&eacute;duction de l'exposition aux polluants r&eacute;glement&eacute;s &mdash; formald&eacute;hydes, benz&egrave;ne, dioxyde de carbone. Pour Titanair, c'est une fen&ecirc;tre d'opportunit&eacute; consid&eacute;rable : des milliers d'&eacute;tablissements en France ne sont pas encore conform&eacute;s. &raquo;</p>
+
+      <br>
+
+      <p>&laquo; C&ocirc;t&eacute; normes, la classification ISO 16890 s'impose d&eacute;finitivement. Les bureaux d'&eacute;tudes exigent d&eacute;sormais des filtres ePM1 sup&eacute;rieurs &agrave; 50% pour le tertiaire et 80% pour le m&eacute;dical. Notre gamme TITABAG et TITAPAK SV-GD coche toutes les cases. &raquo;</p>
+
+      <br>
+
+      <p style="color: #6b21a8; font-weight: 600; font-style: italic; margin-bottom: 4px;">[Jingle business]</p>
+      <p>&laquo; Passons aux opportunit&eacute;s de march&eacute;. Le chiffre du jour : huit virgule neuf pour cent. C'est le taux de croissance annuel du march&eacute; des purificateurs d'air pr&eacute;vu jusqu'en 2035. Les moteurs ? La prise de conscience sanitaire post-pand&eacute;mie, le durcissement r&eacute;glementaire, et l'essor des technologies connect&eacute;es. En France, la filtration m&eacute;canique reste reine, devant l'ionisation et la photocatalyse. &raquo;</p>
+
+      <br>
+
+      <p>&laquo; Autre signal fort : les investissements en capital-risque dans les startups de filtration ont bondi de 32% en deux ans. Les investisseurs misent sur les filtres autonettoyants, la nanotechnologie et l'intelligence artificielle embarqu&eacute;e. C'est un signal clair : notre secteur se transforme, et Titanair a les atouts pour &ecirc;tre au c&oelig;ur de cette transformation, notamment avec notre technologie QUARTZ rechargeable qui r&eacute;pond parfaitement aux attentes d'&eacute;conomie circulaire. &raquo;</p>
+
+      <br>
+
+      <p style="color: #6b21a8; font-weight: 600; font-style: italic; margin-bottom: 4px;">[Jingle agenda]</p>
+      <p>&laquo; Terminons avec l'agenda. Et c'est un &eacute;v&eacute;nement &agrave; ne surtout pas manquer : CONTAMIN@LYON se tient dans huit jours, les 25 et 26 mars, &agrave; La Sucri&egrave;re. Organis&eacute; par l'ASPEC, ce salon est d&eacute;di&eacute; &agrave; la ma&icirc;trise de la contamination &mdash; autrement dit, c'est notre terrain de jeu. C'est &agrave; quinze minutes de nos locaux de Rillieux-la-Pape, aucune excuse pour ne pas y &ecirc;tre. &raquo;</p>
+
+      <br>
+
+      <p>&laquo; Plus loin dans le calendrier, notez d&eacute;j&agrave; Interclima, du 28 septembre au 1er octobre &agrave; Paris Porte de Versailles. C'est LE salon du CVC et de la qualit&eacute; de l'air int&eacute;rieur en France. Si vous souhaitez r&eacute;server un stand, c'est maintenant qu'il faut s'y prendre. &raquo;</p>
+
+      <br>
+
+      <p style="color: #6b21a8; font-weight: 600; font-style: italic; margin-bottom: 4px;">[Musique de cl&ocirc;ture]</p>
+      <p>&laquo; Voil&agrave; pour l'essentiel de ce mardi 17 mars. Excellente journ&eacute;e &agrave; tous, et on se retrouve demain pour un nouveau Brief Titanair. &raquo;</p>
+
+      <p style="color: #6b21a8; font-weight: 600; font-style: italic; margin-top: 16px;">[Fin du g&eacute;n&eacute;rique]</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">TITAN<span>AIR</span></div>
+    <div class="footer-address">
+      160 rue Pierre Fallion, 69140 Rillieux-la-Pape<br>
+      info@titanair.fr &bull; titanair.fr
+    </div>
+    <div class="footer-links">
+      <a href="https://titanair.fr">Site web</a>
+      <a href="https://fr.linkedin.com/company/groupe-titanair">LinkedIn</a>
+      <a href="mailto:info@titanair.fr">Contact</a>
+    </div>
+    <div class="footer-legal">
+      Cette newsletter est r&eacute;serv&eacute;e &agrave; l'usage interne des dirigeants du Groupe Titanair.<br>
+      &copy; 2026 Groupe Titanair &mdash; Tous droits r&eacute;serv&eacute;s &bull; ISO 9001 certifi&eacute; depuis 2017<br>
+      <a href="#" style="color: #60a5fa;">Se d&eacute;sabonner</a> &bull; <a href="#" style="color: #60a5fa;">Pr&eacute;f&eacute;rences</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
