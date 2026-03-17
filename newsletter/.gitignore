@@ -1,0 +1,6 @@
+.env
+gcloud-credentials.json
+__pycache__/
+*.pyc
+output/
+*.mp3
